@@ -94,5 +94,5 @@ The designs were created to the following widths:
 
   Request Invite
 
-  © Easybank. All Rights Reserved
+  
   
