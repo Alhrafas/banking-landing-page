@@ -20,16 +20,16 @@
 <body>
     <header class="flex justify-space-between py-4 px-2">
       <img src="./images/logo.svg" alt="logo">
-      <nav>
-        <ul>
+      <div class="navbar_main">
+        <ul class="navbar" aria-expanded="false" id="primary-navigation" data-visible="false">
           <li><a href="#home">Home</a></li>
           <li><a href="#about">About</a></li>
           <li><a href="#contact">Contact</a></li>
           <li><a href="#blog">Blog</a></li>
           <li><a href="#careers">Careers</a></li>
         </ul>
-      </nav>
-      <button type="button">Request Invite</button>
+      </div>
+      <button class="btn" type="button">Request Invite</button>
     </header>
 
     <div class="hero_main">
@@ -44,6 +44,7 @@
       <div class="hero_image">
         <img src="./images/image-confetti.jpg" alt="">
       </div>
+      <button class="mobile-nav-toggle" aria-controls="primary-navigation" aria-expanded="false"><span class="sr-only"></span></button>
     </div>
 
     <section class="first">
@@ -152,9 +153,28 @@
       </div>
     </footer>
  
-  <div class="attribution">
+  <!-- <div class="attribution">
     Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
     Coded by <a href="#">Your Name Here</a>.
-  </div>
+  </div> -->
+  <script>
+    document.addEventListener('DOMcontentLoader', function() {
+      const primaryNav = document.querySelector('.navbar');
+      const navToggle = document.querySelector('.mobile-nav-toggle');
+
+      navToggle.addEventListener('click', function() {
+        const isVisible = primaryNav.style.transform === 'translateX(0%)';
+
+        if (!isVisible) {
+          primaryNav.style.transform = 'translateX(0%)';
+          navToggle.setAttribute('aria-expanded', 'true');
+          
+        } else {
+          primaryNav.style.transform = 'translate(100%)';
+          navToggle.style.setAttribute('aria-expanded', 'false')
+        }
+      });
+    })
+  </script>
 </body>
 </html>
